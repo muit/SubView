@@ -1,0 +1,9 @@
+<html>
+<head>
+</head>
+<body>
+    <h1>Fecha:</h1><br>
+    <% tObject = Date.strptime(Date.today.to_s, '%Y-%m-%d') %>
+    <%= "Hoy es #{tObject.day} del #{tObject.month} del año #{tObject.year}" %>
+</body>
+</html>

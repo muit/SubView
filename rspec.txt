@@ -1,0 +1,19 @@
+
+Mars rover
+[32m  starts at x and y position[0m
+[31m  recibes a empty command (FAILED - 1)[0m
+
+Failures:
+
+  1) Mars rover recibes a empty command
+     [31mFailure/Error: @marsrover.startCommand("")[0m
+     [31mNoMethodError:[0m
+     [31m  undefined method `startCommand' for #<MarsRover:0x9047280 @x=0, @y=0>[0m
+     [36m# ./spec/main_spec.rb:14:in `block (2 levels) in <top (required)>'[0m
+
+Finished in 0.01277 seconds (files took 0.59045 seconds to load)
+[31m2 examples, 1 failure[0m
+
+Failed examples:
+
+[31mrspec ./spec/main_spec.rb:13[0m [36m# Mars rover recibes a empty command[0m
