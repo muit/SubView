@@ -27,6 +27,7 @@ Milestone2.0: Visual App implementations.
 ########################
 #         Core         #
 ########################
+0.0 - 25/10/2014: Server load working by Muit
 
 
 ########################

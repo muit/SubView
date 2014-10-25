@@ -5,7 +5,4 @@ require 'date'
 
 require_relative "lib/main.rb"
 
-
-set :port, 3000
-set :bind, '0.0.0.0'
-
+start 3000, true
