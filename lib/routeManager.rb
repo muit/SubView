@@ -2,11 +2,11 @@ class RouteManager
   @@gets  = []
   @@posts = []
 
-  def self.get url view
-    @@gets.push ({url: url, view: view})
+  def self.get url, controller, view
+    @@gets.push ({url: url, controller: controller, view: view})
   end
-  def self.post url view
-    @@posts.push({url: url, view: view})
+  def self.post url, controller, view
+    @@posts.push({url: url, controller: controller, view: view})
   end
 
   def self.apply
@@ -17,7 +17,7 @@ class RouteManager
     end
     @@posts.each do |route|
       post route.url do
-        route.view
+        # Call the controller method
       end
     end
   end

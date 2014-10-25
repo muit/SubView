@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 gem 'sinatra', '~> 1.4.5'
 gem 'sinatra-contrib'
-
 gem 'pg'
 gem 'activerecord', '~> 4.1.6'
+gem 'youtube_it', '~> 2.4.2'
 
 group :test do
   gem 'rspec', '~> 3.0.0'

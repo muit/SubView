@@ -1,10 +1,7 @@
 # Routes List
 #####################################
-get = RouteManager.get
-
-#####################################
 # Example:
-#   add "url", controller.view
+#   RouteManager.get "url", controller, view
 ##
 
 
