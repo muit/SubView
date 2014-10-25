@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'sinatra', '~> 1.4.5'
 gem 'sinatra-contrib'
 
+gem 'pg'
+gem 'activerecord', '~> 4.1.6'
+
 group :test do
   gem 'rspec', '~> 3.0.0'
   gem 'rspec-mocks', '~> 3.0.0'
