@@ -19,6 +19,22 @@ GNU General Public License for more details.
 
 Milestone0.0: Core implementations.
 
-########
-# Core #
-########
+Milestone1.0: Client Functionality implementations.
+
+Milestone2.0: Visual App implementations.
+
+
+########################
+#         Core         #
+########################
+
+
+########################
+# Client Functionality #
+########################
+
+
+########################
+#       Visuals        #
+########################
+
