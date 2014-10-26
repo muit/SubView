@@ -36,6 +36,7 @@ Milestone3.0: Server Functionality implementations.
 ########################
 # Client Functionality #
 ########################
+1.0 - 26/10/2014: Functionality layout ready
 
 
 ########################
