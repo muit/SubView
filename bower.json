@@ -1,0 +1,8 @@
+{
+    "name": "subview",
+    "dependencies": {
+        "atoms" : "*",
+        "atoms-icons" : "*",
+        "hope" : "*"
+    }
+}

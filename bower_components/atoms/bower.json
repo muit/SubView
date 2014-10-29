@@ -1,0 +1,29 @@
+{
+  "name": "atoms",
+  "description": "Atomic Development Components for Modern WebApps.",
+  "version": "0.10.17",
+  "homepage": "http://atoms.tapquo.com",
+  "authors": [
+    "@soyjavi <javi@tapquo.com>"
+  ],
+  "keywords": [
+    "mobile",
+    "framework",
+    "html5",
+    "device",
+    "desktop",
+    "phone",
+    "tablet",
+    "tv"
+  ],
+  "dependencies": {
+    "quojs": "*",
+    "jquery": "*"
+  },
+  "license": "MIT",
+  "main": "atoms.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tapquo/bower-atoms.git"
+  }
+}
