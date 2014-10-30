@@ -11,6 +11,8 @@ var gutil   = require('gulp-util');
 var stylus  = require('gulp-stylus');
 var yml     = require('gulp-yml');
 var pkg     = require('./package.json');
+var ServeMe = require('serve-me')({directory: './www', debug: true });
+if(typeof Utyl == "undefined") require("./source/utyl/utyl.js");
 
 // -- FILES --------------------------------------------------------------------
 var assets = './www/assets';
@@ -90,7 +92,7 @@ gulp.task('yml', function() {
 });
 
 gulp.task('webserver', function() {
-  connect.server({ port: 8000, root: 'www/', livereload: true });
+  ServeMe.start(8080);
 });
 
 gulp.task('init', function() {
