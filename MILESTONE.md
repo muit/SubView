@@ -29,6 +29,7 @@ Milestone3.0: Server Functionality implementations.
 ########################
 #         Core         #
 ########################
+0.0 - 01/11/2014: Update ServeMe & Change folders by Muit
 
 
 ########################

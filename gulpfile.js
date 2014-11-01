@@ -18,15 +18,15 @@ if(typeof Utyl == "undefined") require("./source/utyl/utyl.js");
 var assets = './www/assets';
 
 var bower = {
-  js : ['bower_components/hope/hope.js',
-        'bower_components/atoms/atoms.js',
-        'bower_components/atoms/atoms.app.js',
-        'bower_components/appnima/*.js',
-        'bower_components/atoms-app-*/*.js'],
+  js : ['lib/hope/hope.js',
+        'lib/atoms/atoms.js',
+        'lib/atoms/atoms.app.js',
+        'lib/appnima/*.js',
+        'lib/atoms-app-*/*.js'],
   css: [
-        'bower_components/atoms/atoms.app.css',
-        'bower_components/atoms-icons/atoms.icons.css',
-        'bower_components/atoms-app-*/*.css']};
+        'lib/atoms/atoms.app.css',
+        'lib/atoms-icons/atoms.icons.css',
+        'lib/atoms-app-*/*.css']};
 
 var source = {
   coffee: [ 'source/entities/*.coffee',
