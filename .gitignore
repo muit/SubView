@@ -20,3 +20,7 @@ connect.sh
 password*
 
 log_subview
+lib/server.subview.js
+www/assets/js
+www/assets/css
+www/assets/scaffold

@@ -12,10 +12,12 @@ var stylus  = require('gulp-stylus');
 var yml     = require('gulp-yml');
 var pkg     = require('./package.json');
 var ServeMe = require('serve-me')({directory: './www', debug: true });
-if(typeof Utyl == "undefined") require("./source/utyl/utyl.js");
+if(typeof Utyl == "undefined")
+  require("./source/utyl/utyl.js");
 
 // -- FILES --------------------------------------------------------------------
 var assets = './www/assets';
+var libs = './lib';
 
 var bower = {
   js : ['lib/hope/hope.js',
@@ -29,20 +31,23 @@ var bower = {
         'lib/atoms-app-*/*.css']};
 
 var source = {
-  coffee: [ 'source/entities/*.coffee',
-            'source/atoms/*.coffee',
-            'source/molecules/*.coffee',
-            'source/organisms/*.coffee',
-            'source/*.coffee',
-            'source/*.*.coffee'],
-  styl  : [ 'source/style/__init.styl',
-            'source/style/__vendor.styl',
-            'source/style/atom.*.styl',
-            'source/style/molecule.*.styl',
-            'source/style/organism.*.styl',
-            'source/style/app.styl',
-            'source/style/app.*.styl'],
-  yml   : [ 'source/organisms/*.yml']};
+  sv_coffee: [ 'source/server/*.coffee',
+               'source/server/controller/*.coffee',
+               'source/server/model/*.coffee'],
+  coffee   : [ 'source/app/entities/*.coffee',
+               'source/app/atoms/*.coffee',
+               'source/app/molecules/*.coffee',
+               'source/app/organisms/*.coffee',
+               'source/app/*.coffee',
+               'source/app/*.*.coffee'],
+  styl     : [ 'source/app/style/__init.styl',
+               'source/app/style/__vendor.styl',
+               'source/app/style/atom.*.styl',
+               'source/app/style/molecule.*.styl',
+               'source/app/style/organism.*.styl',
+               'source/app/style/app.styl',
+               'source/app/style/app.*.styl'],
+  yml      : [ 'source/app/organisms/*.yml']};
 
 var banner = ['/**',
   ' * <%= pkg.name %> - <%= pkg.description %>',
@@ -54,7 +59,8 @@ var banner = ['/**',
   ''].join('\n');
 
 // -- TASKS --------------------------------------------------------------------
-gulp.task('bower', function() {
+gulp.task('bower', function()
+{
   gulp.src(bower.js)
     .pipe(concat('atoms.js'))
     .pipe(gulp.dest(assets + '/js'));
@@ -64,7 +70,8 @@ gulp.task('bower', function() {
     .pipe(gulp.dest(assets + '/css'));
 });
 
-gulp.task('coffee', function() {
+gulp.task('coffee', function()
+{
   gulp.src(source.coffee)
     .pipe(concat('atoms.' + pkg.name + '.coffee'))
     .pipe(coffee().on('error', gutil.log))
@@ -74,7 +81,19 @@ gulp.task('coffee', function() {
     .pipe(connect.reload());
 });
 
-gulp.task('styl', function() {
+gulp.task('server_coffee', function()
+{
+  gulp.src(source.sv_coffee)
+    .pipe(concat('server.' + pkg.name + '.coffee'))
+    .pipe(coffee().on('error', gutil.log))
+    .pipe(uglify({mangle: false}))
+    .pipe(header(banner, {pkg: pkg}))
+    .pipe(gulp.dest(libs))
+    .pipe(connect.reload());
+});
+
+gulp.task('styl', function()
+{
   gulp.src(source.styl)
     .pipe(concat('atoms.' + pkg.name + '.styl'))
     .pipe(stylus({compress: true, errors: true}))
@@ -83,24 +102,31 @@ gulp.task('styl', function() {
     .pipe(connect.reload());
 });
 
-gulp.task('yml', function() {
-  console.log(source.yml)
+gulp.task('yml', function()
+{
+  console.log(source.yml);
   gulp.src(source.yml)
     .pipe(yml().on('error', gutil.log))
     .pipe(gulp.dest(assets + '/scaffold'))
     .pipe(connect.reload());
 });
 
-gulp.task('webserver', function() {
+gulp.task('webserver', function()
+{
+  gulp.run(['server_coffee']);
+  require('./lib/server.' + pkg.name + '.js');
+
   ServeMe.start(8080);
 });
 
-gulp.task('init', function() {
-  gulp.run(['bower', 'coffee', 'styl', 'yml'])
+gulp.task('init', function()
+{
+  gulp.run(['bower', 'coffee', 'styl', 'yml']);
 });
 
-gulp.task('default', function() {
-  gulp.run(['webserver'])
+gulp.task('default', function()
+{
+  gulp.run(['webserver']);
   gulp.watch(source.coffee, ['coffee']);
   gulp.watch(source.styl, ['styl']);
   gulp.watch(source.yml, ['yml']);
