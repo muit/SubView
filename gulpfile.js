@@ -114,6 +114,7 @@ gulp.task('yml', function()
 gulp.task('webserver', function()
 {
   gulp.run(['server_coffee']);
+  gulp.watch(source.sv_coffee, ['server_coffee']);
   require('./lib/server.' + pkg.name + '.js');
 
   ServeMe.start(8080);
