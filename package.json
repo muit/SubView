@@ -13,7 +13,7 @@
     "test": "make test"
   },
   "dependencies": {
-    "serve-me": "0.2.51",
+    "serve-me": "0.3.0",
     "mongoose": "3.8.18",
     "bcrypt":   "0.8.0"
   },
